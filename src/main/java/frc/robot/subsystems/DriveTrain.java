@@ -8,9 +8,12 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.commands.Drive;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -18,21 +21,15 @@ import frc.robot.commands.Drive;
 
 public class DriveTrain extends Subsystem {
 
-  public static Talon driveFrontLeft = new Talon(1);
-  public static Talon driveFrontRight = new Talon(2);
-  public static Talon driveBackRight = new Talon(3);
-  public static Talon driveBackLeft = new Talon(4);
-  
-  public static double x = 0;
-  public static double y = 0;
-  public static double z = 0;
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  
-  public static MecanumDrive mecDrive = new MecanumDrive(driveFrontLeft, driveBackLeft, driveFrontRight, driveBackRight);
-  
-  
-       
+  public static Talon driveFrontLeft = new Talon(RobotMap.DriveFrontLeft);
+  public static Talon driveFrontRight = new Talon(RobotMap.DriveFrontRight);
+ 
+ public static DifferentialDrive diffDrive = new DifferentialDrive(driveFrontLeft, driveFrontRight);
+ 
+ public void arcadeDrive(double moveSpeed, double rotateSpeed ){
+   diffDrive.arcadeDrive(moveSpeed, rotateSpeed);
+ }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

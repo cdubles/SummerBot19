@@ -6,13 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
+import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
+
 
 public class Drive extends Command {
   public Drive() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+     requires(Robot.DriveTrain);
   }
 
   // Called just before this Command runs the first time
@@ -23,6 +25,11 @@ public class Drive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+     double moveSpeed = OI.drive1.getRawAxis(1);
+     double rotateSpeed = OI.drive1.getRawAxis(2);
+
+    Robot.DriveTrain.arcadeDrive(moveSpeed, rotateSpeed);
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -34,6 +41,7 @@ public class Drive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.DriveTrain.arcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same
