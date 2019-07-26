@@ -20,12 +20,15 @@ import frc.robot.RobotMap;
  */
 
 public class DriveTrain extends Subsystem {
+//create talons
 
   public static Talon driveFrontLeft = new Talon(RobotMap.DriveFrontLeft);
   public static Talon driveFrontRight = new Talon(RobotMap.DriveFrontRight);
- 
+
+ //make drive train
  public static DifferentialDrive diffDrive = new DifferentialDrive(driveFrontLeft, driveFrontRight);
- 
+
+ //make drivetrain function
  public void arcadeDrive(double moveSpeed, double rotateSpeed ){
    diffDrive.arcadeDrive(moveSpeed, rotateSpeed);
  }

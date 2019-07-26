@@ -25,9 +25,10 @@ public class Drive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-     double moveSpeed = OI.drive1.getRawAxis(1);
-     double rotateSpeed = OI.drive1.getRawAxis(2);
-
+    //get values from joystick
+     double moveSpeed = OI.drive1.getY();
+     double rotateSpeed = OI.drive2.getX();
+    //puts new values into driving function
     Robot.DriveTrain.arcadeDrive(moveSpeed, rotateSpeed);
 
   }
