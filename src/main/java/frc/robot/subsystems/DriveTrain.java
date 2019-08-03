@@ -8,9 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
-
-import edu.wpi.first.wpilibj.Talon;
+//import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.commands.Drive;
 import frc.robot.RobotMap;
@@ -22,8 +21,8 @@ import frc.robot.RobotMap;
 public class DriveTrain extends Subsystem {
 //create talons
 
-  public static Talon driveFrontLeft = new Talon(RobotMap.DriveFrontLeft);
-  public static Talon driveFrontRight = new Talon(RobotMap.DriveFrontRight);
+  public static WPI_TalonSRX driveFrontLeft = new WPI_TalonSRX(RobotMap.DriveFrontLeft);
+  public static WPI_TalonSRX driveFrontRight = new WPI_TalonSRX(RobotMap.DriveFrontRight);
 
  //make drive train
  public static DifferentialDrive diffDrive = new DifferentialDrive(driveFrontLeft, driveFrontRight);
