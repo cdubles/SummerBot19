@@ -27,7 +27,7 @@ public class Drive extends Command {
   protected void execute() {
     //get values from joystick
      double moveSpeed = OI.drive1.getY();
-     double rotateSpeed = OI.drive2.getX();
+     double rotateSpeed = OI.drive2.getZ();
     //puts new values into driving function
     Robot.DriveTrain.arcadeDrive(moveSpeed, rotateSpeed);
 
@@ -42,6 +42,7 @@ public class Drive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    //stop robot when program ends
     Robot.DriveTrain.arcadeDrive(0, 0);
   }
 

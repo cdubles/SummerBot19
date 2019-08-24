@@ -7,29 +7,25 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
-//import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.commands.Drive;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
 
 public class DriveTrain extends Subsystem {
-//create talons
+  // create spark motor controllers and give value
 
-  public static WPI_TalonSRX driveFrontLeft = new WPI_TalonSRX(RobotMap.DriveFrontLeft);
-  public static WPI_TalonSRX driveFrontRight = new WPI_TalonSRX(RobotMap.DriveFrontRight);
+  public static Spark driveFrontLeft = new Spark(RobotMap.DriveFrontLeft);
+  public static Spark driveFrontRight = new Spark(RobotMap.DriveFrontRight);
 
  //make drive train
  public static DifferentialDrive diffDrive = new DifferentialDrive(driveFrontLeft, driveFrontRight);
 
  //make drivetrain function
  public void arcadeDrive(double moveSpeed, double rotateSpeed ){
-   diffDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    diffDrive.arcadeDrive(moveSpeed, rotateSpeed);
  }
 
   @Override
